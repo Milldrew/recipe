@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Recipe } from '../core/models/recipe';
 import { RecipesService } from '../core/services/recipes.service';
 
 @Component({
@@ -7,7 +8,16 @@ import { RecipesService } from '../core/services/recipes.service';
   styleUrls: ['./display-recipes.component.scss'],
 })
 export class DisplayRecipesComponent implements OnInit {
-  constructor(private readonly recipes: RecipesService) {}
+  allRecipes: Recipe[] | [] = [];
+  constructor(private readonly recipes: RecipesService) {
+    this.recipes
+      .getRecipes()
+      .subscribe(
+        (recipesPayload) => (this.allRecipes = recipesPayload),
+        console.error,
+        console.log
+      );
+  }
 
   ngOnInit(): void {}
 }
