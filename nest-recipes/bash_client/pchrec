@@ -1,1 +1,1 @@
-curl -X PATCH -d '{ "id":1, "title":"PATCHED","ingredients":"PATCHED", "tags":"PATCHED", "imageUrl":"PATCHED", "cookingTime":0, "prepTime":0, "yield":0,"steps":"PATCHED","rating":0}' -H "Content-Type: application/json" 'http://localhost:3000/recipes/'$1
+curl -X PATCH -d '{ "title":"PATCHED","ingredients":"PATCHED", "tags":"PATCHED", "imageUrl":"PATCHED", "cookingTime":0, "prepTime":0, "yield":0,"steps":"PATCHED","rating":0}' -H "Content-Type: application/json" 'http://localhost:3000/recipes/'$1
