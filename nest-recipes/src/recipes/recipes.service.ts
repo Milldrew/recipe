@@ -16,6 +16,7 @@ export class RecipesService {
   }
 
   findAll() {
+    console.log('finda All hit');
     return this.recipeRepo.find();
   }
 
