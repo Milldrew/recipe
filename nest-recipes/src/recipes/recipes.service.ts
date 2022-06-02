@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateRecipeDto } from './dto/create-recipe.dto';
@@ -11,19 +11,28 @@ export class RecipesService {
     @InjectRepository(Recipe) private readonly recipeRepo: Repository<Recipe>,
   ) {}
   create(createRecipeDto: CreateRecipeDto) {
-    return 'This action adds a new recipe';
+    const recipe = this.recipeRepo.create(createRecipeDto);
+    return this.recipeRepo.save(recipe);
   }
 
   findAll() {
-    return `This action returns all recipes`;
+    return this.recipeRepo.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} recipe`;
+  async findOne(id: number) {
+    const recipe = await this.recipeRepo.findOneBy({ id });
+    if (!recipe) {
+      throw new NotFoundException(`Recipe #${id} not found`);
+    }
+    return recipe;
   }
 
   update(id: number, updateRecipeDto: UpdateRecipeDto) {
-    return `This action updates a #${id} recipe`;
+    const recipe = this.recipeRepo.preload(updateRecipeDto);
+    if (!recipe) {
+      throw new NotFoundException(`Recipe #${id} not found`);
+    }
+    return recipe;
   }
 
   remove(id: number) {
