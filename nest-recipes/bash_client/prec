@@ -1,0 +1,1 @@
+curl -d '{ "id":1, "title":"title","ingredients":"ingredients", "tags":"tags", "imageUrl":"imageUrl", "cookingTime":7, "prepTime":7, "yield":7,"steps":"steps","rating":1}' -H "Content-Type: application/json" 'http://localhost:3000/recipes/'$1
