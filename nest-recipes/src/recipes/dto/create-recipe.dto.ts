@@ -1,7 +1,5 @@
 import { IsNumber, IsString } from 'class-validator';
 export class CreateRecipeDto {
-  @IsNumber()
-  id: number;
   @IsString()
   title: string;
   @IsString()
