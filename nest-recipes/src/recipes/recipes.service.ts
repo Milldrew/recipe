@@ -27,15 +27,16 @@ export class RecipesService {
     return recipe;
   }
 
-  update(id: number, updateRecipeDto: UpdateRecipeDto) {
-    const recipe = this.recipeRepo.preload(updateRecipeDto);
+  async update(id: number, updateRecipeDto: UpdateRecipeDto) {
+    const recipe = await this.recipeRepo.preload({ id, ...updateRecipeDto });
     if (!recipe) {
       throw new NotFoundException(`Recipe #${id} not found`);
     }
-    return recipe;
+    return this.recipeRepo.save(recipe);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} recipe`;
+  async remove(id: number) {
+    const recipe = await this.recipeRepo.findOneBy({ id });
+    return this.recipeRepo.remove(recipe);
   }
 }
