@@ -5,9 +5,15 @@
   height: 100%;
   align-items: center;
   justify-content: center;
+  margin: {
+    top: 100px;
+  }
 }
 
 .grid-container {
+  position: absolute;
+  top: 20vh;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   @include responsive.for-size(Large) {

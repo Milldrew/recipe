@@ -1,0 +1,15 @@
+:host {
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20vh;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+}
