@@ -1,12 +1,25 @@
+@use "../../responsive.scss" as responsive;
 :host {
   display: flex;
-  align-items: center;
   width: 100%;
+  height: 100%;
+  align-items: center;
   justify-content: center;
 }
 
 .grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-row: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  @include responsive.for-size(Large) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include responsive.for-size(Medium) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include responsive.for-size(Small) {
+    grid-template-columns: 1fr;
+  }
+  @include responsive.for-size(XSmall) {
+    grid-template-columns: 1fr;
+  }
 }
