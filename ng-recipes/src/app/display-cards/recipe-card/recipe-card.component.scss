@@ -1,8 +1,9 @@
-@use "../../../responsive.scss" as responsive;
 :host {
   max-width: 80%;
   max-height: 100vh;
   margin: {
     bottom: 20px;
+    right: auto;
+    left: auto;
   }
 }
