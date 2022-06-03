@@ -1,3 +1,4 @@
+import { MatChipsModule } from '@angular/material/chips';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -11,8 +12,14 @@ import { RecipeCardComponent } from './display-cards/recipe-card/recipe-card.com
 import { HeroComponent } from './hero/hero.component';
 
 @NgModule({
-  declarations: [AppComponent, DisplayCardsComponent, RecipeCardComponent, HeroComponent],
+  declarations: [
+    AppComponent,
+    DisplayCardsComponent,
+    RecipeCardComponent,
+    HeroComponent,
+  ],
   imports: [
+    MatChipsModule,
     MatCardModule,
     BrowserModule,
     AppRoutingModule,
