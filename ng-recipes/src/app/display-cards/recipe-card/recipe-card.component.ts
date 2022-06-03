@@ -10,10 +10,10 @@ export class RecipeCardComponent implements OnInit {
   recipe: Recipe = {
     id: 1,
     title: 'string', // ok
-    ingredients: 'string', //
+    ingredients: 'string', // ok
     tags: 'string',
-    imageUrl: 'string',
-    cookingTime: 3,
+    imageUrl: 'https://material.angular.io/assets/img/examples/shiba2.jpg', // ok
+    cookingTime: 3, //ok
     prepTime: 1,
     yield: 1,
     steps: 'string',
